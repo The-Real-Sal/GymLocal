@@ -11,4 +11,5 @@ public interface RegisterView {
     void showErrorValidEmail();
     void showErrorPassword();
     void showErrorPasswordMatch();
+    void returnLoginUser(String email, String password);
 }

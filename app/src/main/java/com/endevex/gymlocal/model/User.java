@@ -48,4 +48,8 @@ public class User {
     public void setPassword(String password) {
         this.mPassword = password;
     }
+
+    public void saveUser() {
+
+    }
 }

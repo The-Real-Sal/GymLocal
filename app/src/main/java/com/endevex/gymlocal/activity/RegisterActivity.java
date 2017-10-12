@@ -1,5 +1,7 @@
 package com.endevex.gymlocal.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Toast;
 
 import com.endevex.gymlocal.R;
 import com.endevex.gymlocal.presenter.RegisterPresenter;
+import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.RegisterView;
 
 /**
@@ -77,6 +80,15 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void showErrorPasswordMatch() {
         Toast.makeText(RegisterActivity.this, getString(R.string.password_error_match), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void returnLoginUser(String email, String password) {
+        Intent registeredUser = new Intent();
+        registeredUser.putExtra(Constants.USER_EMAIL, email);
+        registeredUser.putExtra(Constants.USER_PASSWORD, password);
+        setResult(Activity.RESULT_OK, registeredUser);
+        finish();
     }
 
 

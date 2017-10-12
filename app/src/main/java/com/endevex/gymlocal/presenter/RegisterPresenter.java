@@ -23,6 +23,8 @@ public class RegisterPresenter {
     public void registerUser(String firstName, String lastName, String email, String password, String passwordRetyped) {
         if (validate(firstName, lastName, email, password, passwordRetyped)) {
             User user = new User(firstName, lastName, email, password);
+            user.saveUser();
+            mRegisterView.returnLoginUser(email,password);
         }
     }
 

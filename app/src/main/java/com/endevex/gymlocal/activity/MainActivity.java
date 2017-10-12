@@ -1,5 +1,6 @@
 package com.endevex.gymlocal.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.endevex.gymlocal.R;
 import com.endevex.gymlocal.presenter.MainActivityPresenter;
+import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.MainView;
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -27,7 +29,21 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     public void showRegisterActivity(View view) {
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivityForResult(new Intent(this, RegisterActivity.class), Constants.REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case Constants.REQUEST_CODE:
+                if (resultCode == Activity.RESULT_OK) {
+                    mEmailEt.setText(data.getStringExtra(Constants.USER_EMAIL));
+                    mPasswordEt.setText(data.getStringExtra(Constants.USER_PASSWORD));
+                    mPresenter.login(mEmailEt.getText().toString(), mPasswordEt.getText().toString());
+                }
+                break;
+        }
     }
 
     public void attemptLogin(View view) {
