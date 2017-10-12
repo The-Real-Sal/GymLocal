@@ -8,5 +8,6 @@ public interface RegisterView {
     void showErrorFirstName();
     void showErrorLastName();
     void showErrorEmail();
+    void showErrorValidEmail();
     void showErrorPassword();
 }
