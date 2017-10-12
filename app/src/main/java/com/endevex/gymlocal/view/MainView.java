@@ -6,4 +6,8 @@ package com.endevex.gymlocal.view;
 
 public interface MainView {
     void showErrorMessage();
+
+    void showLoginSuccess();
+
+    void showLoginFailure();
 }

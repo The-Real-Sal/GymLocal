@@ -21,4 +21,7 @@
     <string name="text_icon">Text Icon</string>
     <string name="email_icon_text">Email Icon</string>
     <string name="password_icon">Password Icon</string>
+    <string name="email_exists">Email already in use</string>
+    <string name="login_failure">Incorrect username and password combination</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

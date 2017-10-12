@@ -83,6 +83,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     }
 
     @Override
+    public void showErrorEmailExists() {
+        Toast.makeText(RegisterActivity.this, getString(R.string.email_exists), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void returnLoginUser(String email, String password) {
         Intent registeredUser = new Intent();
         registeredUser.putExtra(Constants.USER_EMAIL, email);

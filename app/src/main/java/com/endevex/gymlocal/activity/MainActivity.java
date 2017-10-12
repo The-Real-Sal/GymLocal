@@ -55,4 +55,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
         Toast.makeText(MainActivity.this, getString(R.string.enter_email_password_msg), Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showLoginSuccess(){
+        //startActivity(new Intent(this, HomeActivity.class));
+    }
+
+    @Override
+    public void showLoginFailure() {
+        Toast.makeText(MainActivity.this, getString(R.string.login_failure), Toast.LENGTH_SHORT).show();
+    }
+
 }
