@@ -18,10 +18,10 @@ public class MainActivityPresenter {
         if(!result) mView.showErrorMessage();
     }
 
-    public boolean validate(String... i) {
+    private boolean validate(String... i) {
         int counter = 1;
         for (String str : i) {
-            if (isEmpty(str)) return false;
+            if (str.isEmpty()) return false;
             if (counter < i.length) {
                 if (!isEmail(str)) return false;
             }
@@ -32,13 +32,7 @@ public class MainActivityPresenter {
 
     private boolean isEmail(String str) {
         EmailValidator ev = new EmailValidator();
-        if (ev.validate(str)) return true;
-        return false;
-    }
-
-    public boolean isEmpty(String str) {
-        if (str.length() == 0) return true;
-        return false;
+        return ev.validate(str);
     }
 
 

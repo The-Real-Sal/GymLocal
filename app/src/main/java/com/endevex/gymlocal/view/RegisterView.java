@@ -10,4 +10,5 @@ public interface RegisterView {
     void showErrorEmail();
     void showErrorValidEmail();
     void showErrorPassword();
+    void showErrorPasswordMatch();
 }

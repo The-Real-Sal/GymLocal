@@ -16,4 +16,9 @@
     <string name="enter_email">Enter email</string>
     <string name="enter_password">Enter password</string>
     <string name="enter_valid_email">Enter valid email</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="password_error_match">Passwords do not match</string>
+    <string name="text_icon">Text Icon</string>
+    <string name="email_icon_text">Email Icon</string>
+    <string name="password_icon">Password Icon</string>
 </resources>
