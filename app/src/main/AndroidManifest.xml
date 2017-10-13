@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.endevex.gymlocal">
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -12,7 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-
         <meta-data
             android:name="DATABASE"
             android:value="gymLocal.db" />
@@ -25,6 +31,12 @@
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.endevex.gymlocal.model" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -36,6 +48,9 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.AccountActivity" />
+        <activity
+            android:name=".activity.FindGymActivity"
+            android:label="@string/title_activity_find_gym"></activity>
     </application>
 
 </manifest>

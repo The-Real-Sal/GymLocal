@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private TextView mWelcomeTv;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onRestart() {
         super.onRestart();
+
         // Grab email of logged in user and check if logged in by passing to Presenter method.
         String email = mSharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, "");
         mPresenter.checkLoggedIn(email);
@@ -69,5 +71,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void goToAccount(View view) {
             startActivity(new Intent(this, AccountActivity.class));
+    }
+
+    public void startMapActivity(View view) {
+        startActivity(new Intent(this, FindGymActivity.class));
     }
 }

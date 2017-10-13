@@ -34,7 +34,7 @@
             android:layout_margin="10dp"
             android:minHeight="50dp"
             android:minWidth="148dp"
-            android:onClick="logout"
+            android:onClick="startMapActivity"
             android:text="@string/search_gyms"
             android:textColor="@android:color/white"
             fbutton:buttonColor="@color/fbutton_color_wet_asphalt"

@@ -12,7 +12,7 @@ import com.endevex.gymlocal.view.RegisterView;
 import java.util.List;
 
 /**
- * Activity's presenter. Where all the Logic gets done for the Register Activity.
+ *
  * Created by Leivant on 6/10/2017.
  */
 
@@ -29,9 +29,11 @@ public class RegisterPresenter {
         mRegisterView = view;
     }
 
-    public void registerUser(String firstName, String lastName, String email, String password, String passwordRetyped) {
+    public void registerUser(String firstName, String lastName, String email, String password,
+                             String passwordRetyped, boolean gymOwner) {
         if (validate(firstName, lastName, email, password, passwordRetyped)) {
-            User user = new User(firstName, lastName, email, password);
+            boolean userType = gymOwner ? true : false;
+            User user = new User(firstName, lastName, email, password, userType);
             user.save();
             mRegisterView.returnLoginUser(email, password);
         }

@@ -14,15 +14,25 @@ public class User extends SugarRecord<User> {
     private String mLastName;
     private String mEmail;
     private String mPassword;
+    private boolean mGymOwner;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, String password, boolean gymOwner) {
         this.mFirstName = firstName;
         this.mLastName = lastName;
         this.mEmail = email;
         this.mPassword = password;
+        this.mGymOwner = gymOwner;
+    }
+
+    public boolean isGymOwner() {
+        return mGymOwner;
+    }
+
+    public void setGymOwner(boolean gymOwner) {
+        this.mGymOwner = gymOwner;
     }
 
     public String getFirstName() {

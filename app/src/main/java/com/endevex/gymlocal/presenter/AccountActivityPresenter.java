@@ -20,7 +20,8 @@ public class AccountActivityPresenter {
     public void loadUserDetails(String email){
         List<User> userList = User.find(User.class, "M_EMAIL = ?", email);
         User user = userList.get(0);
-        mAccountView.loadAccountDetails(user.getFirstName(), user.getLastName(), user.getEmail());
+        String userType = user.isGymOwner() ? "Gym Owner" : "Gym User";
+        mAccountView.loadAccountDetails(user.getFirstName(), user.getLastName(), user.getEmail(), userType);
     }
 
     public void saveUserDetails(String firstName, String lastName, String currentEmail, String newEmail) {

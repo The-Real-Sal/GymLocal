@@ -6,5 +6,5 @@ package com.endevex.gymlocal.view;
  */
 
 public interface AccountView {
-    void loadAccountDetails(String firstName, String lastName, String email);
+    void loadAccountDetails(String firstName, String lastName, String email, String userType);
 }

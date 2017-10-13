@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.endevex.gymlocal.R;
@@ -26,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     private EditText mEmailEt;
     private EditText mPasswordEt;
     private EditText mPasswordRetypedEt;
+    private RadioButton mGymUserRb;
+    private RadioButton mGymOwnerRb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
         mEmailEt = (EditText) findViewById(R.id.email_et);
         mPasswordEt = (EditText) findViewById(R.id.password_et);
         mPasswordRetypedEt = (EditText) findViewById(R.id.password_retyped_et);
+        mGymUserRb = (RadioButton) findViewById(R.id.gym_user_rb);
+        mGymOwnerRb = (RadioButton) findViewById(R.id.gym_owner_rb);
 
     }
 
@@ -45,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
                 mLastNameEt.getText().toString(),
                 mEmailEt.getText().toString(),
                 mPasswordEt.getText().toString(),
-                mPasswordRetypedEt.getText().toString());
+                mPasswordRetypedEt.getText().toString(), mGymOwnerRb.isChecked());
     }
 
     public void cancelRegister(View view) {
