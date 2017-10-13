@@ -2,6 +2,7 @@ package com.endevex.gymlocal.presenter;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.endevex.gymlocal.R;
 import com.endevex.gymlocal.model.User;
@@ -12,20 +13,18 @@ import com.endevex.gymlocal.view.MainView;
 import java.util.List;
 
 /**
+ * Activity's presenter. Where all the Logic gets done for the Main Activity.
  * Created by Sal on 6/10/17.
  */
 public class MainActivityPresenter {
     private MainView mMainView;
-    private SharedPreferences mSp;
 
-    public MainActivityPresenter(MainView view, SharedPreferences sp) {
+    public MainActivityPresenter(MainView view) {
         mMainView = view;
-        mSp = sp;
     }
 
-    public void checkLoggedIn() {
-        String email = mSp.getString(Constants.LOGGED_IN_USER_EMAIL, "");
-        if (email.equals("")) {
+    public void checkLoggedIn(String email) {
+        if (email==null||email.equals("")) {
             mMainView.navigateToLogin();
         } else {
             List<User> userList = User.find(User.class, "M_EMAIL = ?", email);
@@ -33,13 +32,5 @@ public class MainActivityPresenter {
             mMainView.logUserIn(user.getFirstName());
         }
     }
-
-    public void logOutUser(){
-        SharedPreferences.Editor editor = mSp.edit();
-        editor.remove(Constants.LOGGED_IN_USER_EMAIL);
-        editor.apply();
-        checkLoggedIn();
-    }
-
 
 }

@@ -2,9 +2,7 @@ package com.endevex.gymlocal.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -15,16 +13,14 @@ import com.endevex.gymlocal.presenter.RegisterPresenter;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.RegisterView;
 
-import java.util.prefs.Preferences;
-
 /**
+ * Activity where the user can register an account.
  * Created by Leivant on 6/10/2017.
  */
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView {
 
     private RegisterPresenter mPresenter;
-    private SharedPreferences mSp;
     private EditText mFirstNameEt;
     private EditText mLastNameEt;
     private EditText mEmailEt;
@@ -35,9 +31,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        mSp = PreferenceManager.getDefaultSharedPreferences(this);
-        mPresenter = new RegisterPresenter(this, mSp);
-
+        mPresenter = new RegisterPresenter(this);
         mFirstNameEt = (EditText) findViewById(R.id.first_name_et);
         mLastNameEt = (EditText) findViewById(R.id.last_name_et);
         mEmailEt = (EditText) findViewById(R.id.email_et);

@@ -43,7 +43,8 @@
                     android:id="@+id/first_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/first_name" />
+                    android:hint="@string/first_name"
+                    android:inputType="textCapWords"/>
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
         </LinearLayout>
 
@@ -73,7 +74,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/last_name" />
+                    android:hint="@string/last_name"
+                    android:inputType="textCapWords"
+                    />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
         </LinearLayout>
 

@@ -10,24 +10,22 @@ import com.endevex.gymlocal.view.LoginView;
 import java.util.List;
 
 /**
+ * Activity's presenter. Where all the Logic gets done for the Login Activity.
  * Created by Leivant on 13/10/2017.
  */
 
 public class LoginActivityPresenter {
 
     private LoginView mLoginView;
-    private SharedPreferences mSp;
 
-    public LoginActivityPresenter(LoginView view, SharedPreferences sp) {
+    public LoginActivityPresenter(LoginView view) {
         mLoginView = view;
-        mSp=sp;
     }
 
     public void login(String email, String password) {
         if (validate(email, password)) {
             if (validateLogin(email, password)) {
-                saveUserToPreferences(email);
-                mLoginView.showLoginSuccess();
+                mLoginView.showLoginSuccess(email);
             } else {
                 mLoginView.showLoginFailure();
             }
@@ -35,12 +33,6 @@ public class LoginActivityPresenter {
             mLoginView.showErrorMessage();
         }
 
-    }
-
-    private void saveUserToPreferences(String email) {
-        SharedPreferences.Editor editor = mSp.edit();
-        editor.putString(Constants.LOGGED_IN_USER_EMAIL, email);
-        editor.apply();
     }
 
     private boolean validateLogin(String email, String password) {

@@ -23,5 +23,13 @@
     <string name="password_icon">Password Icon</string>
     <string name="email_exists">Email already in use</string>
     <string name="login_failure">Incorrect username and password combination</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Home Activity</string>
+    <string name="welcome_user">Hello, %s</string>
+    <string name="success">Success</string>
+    <string name="log_out">Log Out</string>
+    <string name="search_gyms">Search Gyms</string>
+    <string name="search_events">Search Events</string>
+    <string name="update_account">Update account</string>
+    <string name="save_button_text">Save</string>
+    <string name="change_password_text">Change Password</string>
 </resources>

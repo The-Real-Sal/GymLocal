@@ -12,12 +12,12 @@ import com.endevex.gymlocal.view.RegisterView;
 import java.util.List;
 
 /**
+ * Activity's presenter. Where all the Logic gets done for the Register Activity.
  * Created by Leivant on 6/10/2017.
  */
 
 public class RegisterPresenter {
 
-    private SharedPreferences mSp;
     private RegisterView mRegisterView;
 
     /**
@@ -25,18 +25,14 @@ public class RegisterPresenter {
      *
      * @param view the view of RegisterActivity
      */
-    public RegisterPresenter(RegisterView view, SharedPreferences sp) {
+    public RegisterPresenter(RegisterView view) {
         mRegisterView = view;
-        mSp = sp;
     }
 
     public void registerUser(String firstName, String lastName, String email, String password, String passwordRetyped) {
         if (validate(firstName, lastName, email, password, passwordRetyped)) {
             User user = new User(firstName, lastName, email, password);
             user.save();
-            SharedPreferences.Editor editor = mSp.edit();
-            editor.putString(Constants.LOGGED_IN_USER_EMAIL, email);
-            editor.apply();
             mRegisterView.returnLoginUser(email, password);
         }
     }

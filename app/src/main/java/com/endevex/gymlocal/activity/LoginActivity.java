@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +18,14 @@ import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.LoginView;
 
 /**
- * Created by Leivant on 13/10/2017.
+ * Activity where users can login.
+ * Created by Sal on 13/10/2017.
  */
 
-public class LoginActivity extends AppCompatActivity implements LoginView{
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private LoginActivityPresenter mPresenter;
-    private SharedPreferences mSp;
+    private SharedPreferences mSharedPref;
     private EditText mEmailEt;
     private EditText mPasswordEt;
 
@@ -31,8 +33,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mSp = PreferenceManager.getDefaultSharedPreferences(this);
-        mPresenter = new LoginActivityPresenter(this, mSp);
+        mSharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        mPresenter = new LoginActivityPresenter(this);
         mEmailEt = (EditText) findViewById(R.id.email_et);
         mPasswordEt = (EditText) findViewById(R.id.password_et);
     }
@@ -65,7 +67,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     }
 
     @Override
-    public void showLoginSuccess(){
+    public void showLoginSuccess(String email) {
+        mSharedPref = PreferenceManager.getDefaultSharedPreferences(this); //TODO : SHARED PREFERENCES and variable names
+        Editor editor = mSharedPref.edit();
+        editor.putString(Constants.LOGGED_IN_USER_EMAIL, email);
+        editor.commit();
         finish();
     }
 
