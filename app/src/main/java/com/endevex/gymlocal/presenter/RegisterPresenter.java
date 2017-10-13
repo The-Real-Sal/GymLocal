@@ -1,7 +1,11 @@
 package com.endevex.gymlocal.presenter;
 
 
+import android.content.SharedPreferences;
+import android.widget.ShareActionProvider;
+
 import com.endevex.gymlocal.model.User;
+import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.utils.EmailValidator;
 import com.endevex.gymlocal.view.RegisterView;
 
@@ -12,6 +16,8 @@ import java.util.List;
  */
 
 public class RegisterPresenter {
+
+    private SharedPreferences mSp;
     private RegisterView mRegisterView;
 
     /**
@@ -19,14 +25,18 @@ public class RegisterPresenter {
      *
      * @param view the view of RegisterActivity
      */
-    public RegisterPresenter(RegisterView view) {
+    public RegisterPresenter(RegisterView view, SharedPreferences sp) {
         mRegisterView = view;
+        mSp = sp;
     }
 
     public void registerUser(String firstName, String lastName, String email, String password, String passwordRetyped) {
         if (validate(firstName, lastName, email, password, passwordRetyped)) {
             User user = new User(firstName, lastName, email, password);
             user.save();
+            SharedPreferences.Editor editor = mSp.edit();
+            editor.putString(Constants.LOGGED_IN_USER_EMAIL, email);
+            editor.apply();
             mRegisterView.returnLoginUser(email, password);
         }
     }

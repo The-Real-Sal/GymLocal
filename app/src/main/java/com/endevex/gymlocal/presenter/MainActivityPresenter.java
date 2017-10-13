@@ -28,7 +28,17 @@ public class MainActivityPresenter {
         if (email.equals("")) {
             mMainView.navigateToLogin();
         } else {
+            List<User> userList = User.find(User.class, "M_EMAIL = ?", email);
+            User user = userList.get(0);
+            mMainView.logUserIn(user.getFirstName());
         }
+    }
+
+    public void logOutUser(){
+        SharedPreferences.Editor editor = mSp.edit();
+        editor.remove(Constants.LOGGED_IN_USER_EMAIL);
+        editor.apply();
+        checkLoggedIn();
     }
 
 

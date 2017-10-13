@@ -6,4 +6,5 @@ package com.endevex.gymlocal.view;
 
 public interface MainView {
     void navigateToLogin();
+    void logUserIn(String name);
 }
