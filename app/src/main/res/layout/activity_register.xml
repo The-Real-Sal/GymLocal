@@ -228,7 +228,7 @@
             android:onClick="registerUser"
             android:text="@string/register_button_text"
             android:textColor="@android:color/white"
-            fbutton:buttonColor="@color/fbutton_color_turquoise"
+            fbutton:buttonColor="@color/colorAccent"
             fbutton:shadowEnabled="true" />
 
     </LinearLayout>
