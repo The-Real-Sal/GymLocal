@@ -4,7 +4,7 @@ package com.endevex.gymlocal.view;
  * Created by Sal on 6/10/17.
  */
 
-public interface RegisterView {
+public interface SignUpView {
     void showErrorFirstName();
     void showErrorLastName();
     void showErrorEmail();

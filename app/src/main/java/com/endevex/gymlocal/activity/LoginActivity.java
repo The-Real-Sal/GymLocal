@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void showRegisterActivity(View view) {
-        startActivityForResult(new Intent(this, RegisterActivity.class), Constants.REQUEST_CODE);
+        startActivityForResult(new Intent(this, SignUpActivity.class), Constants.REQUEST_CODE);
     }
 
     @Override
