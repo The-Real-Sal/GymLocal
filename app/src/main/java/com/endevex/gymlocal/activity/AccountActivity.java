@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -48,14 +49,6 @@ public class AccountActivity extends AppCompatActivity implements AccountView {
         mPresenter = new AccountActivityPresenter(this);
         mPresenter.loadUserDetails(mSharedPref.getString(Constants.LOGGED_IN_USER_EMAIL,null));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -67,11 +60,7 @@ public class AccountActivity extends AppCompatActivity implements AccountView {
         mCurrentEmail = email;
     }
 
-    public void cancelChanges(View view) {
-        finish();
-    }
-
-    public void saveChanges(View view) {
+    public void saveChanges() {
         mPresenter.saveUserDetails(mFirstName.getText().toString(), mLastName.getText().toString(), mCurrentEmail, mEmail.getText().toString());
         SharedPreferences.Editor editor = mSharedPref.edit();
         editor.putString(Constants.LOGGED_IN_USER_EMAIL, mEmail.getText().toString());
@@ -84,9 +73,23 @@ public class AccountActivity extends AppCompatActivity implements AccountView {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_account, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home) finish();
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                saveChanges();
+                break;
+            case android.R.id.home:
+                finish();
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

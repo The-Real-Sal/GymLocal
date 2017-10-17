@@ -49,14 +49,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         mGymUserRb = (RadioButton) findViewById(R.id.gym_user_rb);
         mGymOwnerRb = (RadioButton) findViewById(R.id.gym_owner_rb);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 

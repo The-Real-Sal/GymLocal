@@ -155,35 +155,6 @@
             fbutton:buttonColor="@color/colorAccent"
             fbutton:shadowEnabled="true" />
 
-        <com.endevex.gymlocal.widget.FButton
-            android:id="@+id/save_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_margin="10dp"
-            android:minHeight="50dp"
-            android:minWidth="148dp"
-            android:onClick="saveChanges"
-            android:text="@string/save_button_text"
-            android:textColor="@android:color/white"
-            fbutton:buttonColor="@color/colorAccent"
-            fbutton:shadowEnabled="true" />
-
-
-        <com.endevex.gymlocal.widget.FButton
-            android:id="@+id/cancel_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_margin="10dp"
-            android:minHeight="50dp"
-            android:minWidth="148dp"
-            android:onClick="cancelChanges"
-            android:text="@string/cancel_button_text"
-            android:textColor="@android:color/white"
-            fbutton:buttonColor="@color/colorPrimary"
-            fbutton:shadowEnabled="true" />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
