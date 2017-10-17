@@ -1,6 +1,5 @@
 package com.endevex.gymlocal.presenter;
 
-import com.endevex.gymlocal.activity.AccountActivity;
 import com.endevex.gymlocal.model.User;
 import com.endevex.gymlocal.view.AccountView;
 

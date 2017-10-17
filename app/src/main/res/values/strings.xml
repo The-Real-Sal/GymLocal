@@ -55,4 +55,5 @@
     <string name="title_main_activity">Main Acitvity</string>
     <string name="title_register_activity">RegisterActivity</string>
     <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_account">Account</string>
 </resources>
