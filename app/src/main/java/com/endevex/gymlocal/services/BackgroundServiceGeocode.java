@@ -2,13 +2,13 @@ package com.endevex.gymlocal.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.endevex.gymlocal.model.geocode.GeocodeResult;
 import com.endevex.gymlocal.model.geocode.Location;
+import com.endevex.gymlocal.services.retrofit.GeocodeService;
 import com.endevex.gymlocal.utils.Constants;
 
 import java.io.IOException;

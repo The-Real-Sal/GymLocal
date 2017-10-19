@@ -70,6 +70,19 @@
             fbutton:buttonColor="@color/fbutton_color_wet_asphalt"
             fbutton:shadowEnabled="true" />
 
+        <com.endevex.gymlocal.widget.FButton
+            android:id="@+id/edit_gym_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_margin="10dp"
+            android:minHeight="50dp"
+            android:minWidth="148dp"
+            android:onClick="goToEditGym"
+            android:text="@string/text_edit_gym_btn"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/fbutton_color_wet_asphalt"
+            fbutton:shadowEnabled="true" />
 
     </LinearLayout>
 

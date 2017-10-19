@@ -1,4 +1,4 @@
-package com.endevex.gymlocal.services;
+package com.endevex.gymlocal.services.retrofit;
 
 import com.endevex.gymlocal.model.geocode.GeocodeResult;
 import com.endevex.gymlocal.model.geocode.Location;

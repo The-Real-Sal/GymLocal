@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Leivant on 6/10/2017.
  */
 
-public class SignUpPresenter {
+public class SignUpActivityPresenter {
 
     private SignUpView mSignUpView;
 
@@ -21,7 +21,7 @@ public class SignUpPresenter {
      *
      * @param view the view of RegisterActivity
      */
-    public SignUpPresenter(SignUpView view) {
+    public SignUpActivityPresenter(SignUpView view) {
         mSignUpView = view;
     }
 

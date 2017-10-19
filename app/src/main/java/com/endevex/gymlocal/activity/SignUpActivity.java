@@ -3,8 +3,6 @@ package com.endevex.gymlocal.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -14,13 +12,13 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.endevex.gymlocal.R;
-import com.endevex.gymlocal.presenter.SignUpPresenter;
+import com.endevex.gymlocal.presenter.SignUpActivityPresenter;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.SignUpView;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
-    private SignUpPresenter mPresenter;
+    private SignUpActivityPresenter mPresenter;
     private EditText mFirstNameEt;
     private EditText mLastNameEt;
     private EditText mEmailEt;
@@ -40,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        mPresenter = new SignUpPresenter(this);
+        mPresenter = new SignUpActivityPresenter(this);
         mFirstNameEt = (EditText) findViewById(R.id.first_name_et);
         mLastNameEt = (EditText) findViewById(R.id.last_name_et);
         mEmailEt = (EditText) findViewById(R.id.email_et);

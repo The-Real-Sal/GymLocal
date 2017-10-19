@@ -1,14 +1,10 @@
 package com.endevex.gymlocal.activity;
 
-import android.app.IntentService;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -17,39 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.endevex.gymlocal.R;
-import com.endevex.gymlocal.model.geocode.GeocodeResult;
-import com.endevex.gymlocal.model.geocode.Location;
-import com.endevex.gymlocal.presenter.RegisterGymPresenter;
+import com.endevex.gymlocal.presenter.RegisterGymActivityPresenter;
 import com.endevex.gymlocal.services.BackgroundServiceGeocode;
-import com.endevex.gymlocal.services.GeocodeService;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.RegisterGymView;
-import com.google.gson.Gson;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.R.attr.defaultValue;
 
 public class RegisterGymActivity extends AppCompatActivity implements RegisterGymView {
 
-    private RegisterGymPresenter mPresenter;
+    private RegisterGymActivityPresenter mPresenter;
     private EditText mGymName;
     private EditText mGymType;
     private EditText mGymPhone;
@@ -81,7 +56,7 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        mPresenter = new RegisterGymPresenter(this);
+        mPresenter = new RegisterGymActivityPresenter(this);
         mGymName = (EditText) findViewById(R.id.gym_name_et);
         mGymType = (EditText) findViewById(R.id.gym_type_et);
         mGymPhone = (EditText) findViewById(R.id.phone_et);

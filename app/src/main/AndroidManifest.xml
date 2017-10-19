@@ -67,8 +67,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:enabled="true"
-            android:name="com.endevex.gymlocal.services.BackgroundServiceGeocode" />
+            android:name=".services.BackgroundServiceGeocode"
+            android:enabled="true" />
+
+        <activity
+            android:name=".activity.EditGymActivity"
+            android:label="@string/title_activity_edit_gym"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

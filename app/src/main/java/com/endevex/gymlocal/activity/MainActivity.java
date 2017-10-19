@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -21,7 +19,6 @@ import com.endevex.gymlocal.view.MainView;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private MainActivityPresenter mPresenter;
-    private SharedPreferences mSharedPref;
     private TextView mWelcomeTv;
 
 
@@ -34,22 +31,20 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         mWelcomeTv = (TextView) findViewById(R.id.welcome_message_tv);
         mPresenter = new MainActivityPresenter(this);
-        mSharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // Grab email of logged in user and check if logged in by passing to Presenter method.
-        String email = mSharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, "");
-        mPresenter.checkLoggedIn(email);
-
+        checkLoggedIn();
     }
 
+    private void checkLoggedIn() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        // Grab email of logged in user and check if logged in by passing to Presenter method.
+        String email = sharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, "");
+        mPresenter.checkLoggedIn(email);
+    }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-
-        // Grab email of logged in user and check if logged in by passing to Presenter method.
-        String email = mSharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, "");
-        mPresenter.checkLoggedIn(email);
+        checkLoggedIn();
     }
 
     @Override
@@ -83,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
 
     public void logout() {
-        mSharedPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
-        SharedPreferences.Editor editor = mSharedPref.edit();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(Constants.LOGGED_IN_USER_EMAIL, "");
         editor.commit();
-        mPresenter.checkLoggedIn(mSharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, null));
+        mPresenter.checkLoggedIn(sharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, null));
     }
 
 
@@ -101,5 +96,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void goToAddGym(View view) {
         startActivity(new Intent(this, RegisterGymActivity.class));
+    }
+
+    public void goToEditGym(View view) {
+        startActivity(new Intent(this, EditGymActivity.class));
     }
 }

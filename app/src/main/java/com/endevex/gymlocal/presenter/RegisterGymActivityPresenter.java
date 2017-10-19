@@ -1,30 +1,18 @@
 package com.endevex.gymlocal.presenter;
 
-import android.renderscript.Double2;
 import android.util.Log;
 
 import com.endevex.gymlocal.model.Gym;
 import com.endevex.gymlocal.model.User;
-import com.endevex.gymlocal.model.geocode.GeocodeResult;
-import com.endevex.gymlocal.model.geocode.Location;
-import com.endevex.gymlocal.model.geocode.Viewport;
-import com.endevex.gymlocal.services.GeocodeService;
-import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.RegisterGymView;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Accepts requests from RegisterGymActivity and handles data process in the persistence of the
  * application and models.
  */
-public class RegisterGymPresenter {
+public class RegisterGymActivityPresenter {
     private int mQueryLimitCounter = 0;
     private static final String TAG = "REGISTERGYMPRESENTER";
 
@@ -35,7 +23,7 @@ public class RegisterGymPresenter {
      *
      * @param view Received from RegisterActivity attempted to follow MVP Architecture.
      */
-    public RegisterGymPresenter(RegisterGymView view) {
+    public RegisterGymActivityPresenter(RegisterGymView view) {
         this.mRegisterGymView = view;
     }
 
