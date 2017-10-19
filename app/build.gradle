@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.endevex.gymlocal"
-        minSdkVersion 22
+        minSdkVersion 23
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -26,11 +26,23 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.wrapp.floatlabelededittext:library:0.0.6'
-    compile 'info.hoang8f:fbutton:1.0.5'
-    compile 'com.github.satyan:sugar:1.3'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    // Used for Float label Edit text fields.
+    compile 'com.wrapp.floatlabelededittext:library:0.0.6'
+    // Used for fButtons and pushable buttons
+    compile 'info.hoang8f:fbutton:1.0.5'
+    // Used for SugarORM a light weight and easy persistence api.
+    compile 'com.github.satyan:sugar:1.3'
+    // User for Google Maps.
     compile 'com.google.android.gms:play-services-maps:11.0.4'
+
+    // Retrofit used to web service requests
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    // Retrofit converter for Gson.
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // GSON for Json from Retrofit
+    compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
 }

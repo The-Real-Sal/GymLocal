@@ -83,4 +83,5 @@ public class Gym extends SugarRecord<Gym> {
     public void setOwner(User owner) {
         this.mOwner = owner;
     }
+
 }

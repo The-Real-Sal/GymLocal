@@ -99,4 +99,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         startActivity(new Intent(this, FindGymActivity.class));
     }
 
+    public void goToAddGym(View view) {
+        startActivity(new Intent(this, RegisterGymActivity.class));
+    }
 }

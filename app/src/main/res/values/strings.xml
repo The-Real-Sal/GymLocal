@@ -56,5 +56,27 @@
     <string name="success">Success</string>
     <string name="menu_action_logout">Logout</string>
     <string name="view_account">View account</string>
+    <string name="text_btn_add_gym">Add Gym</string>
+    <string name="title_activity_register_gym">Register Gym</string>
+    <string name="text_gym_name">Gym name</string>
+    <string name="text_gym_type">Type of gym</string>
+    <string name="location_icon_text">Location Icon</string>
+    <string name="text_gym_address">Gym address</string>
+    <string name="phone_icon">Phone Icon</string>
+    <string name="text_phonenumber">Phone number</string>
+    <string name="textstreetname">Street name</string>
+    <string name="text_suburb">Suburb</string>
+    <string name="text_street_number">Street number</string>
+    <string name="text_unit_number">Unit number</string>
+    <string name="text_postcode">Post code</string>
+    <string name="error_enter_gym_name">Please enter Gym Name</string>
+    <string name="error_enter_gym_type">Please enter gym type</string>
+    <string name="hint_gym_type">Crossfit, Strength, Ladies, Strongman, Commercial</string>
+    <string name="error_enter_phone">Please enter a valid number</string>
+    <string name="error_gym_address">Address is not valid</string>
+    <string name="error_enter_street_number">Enter street number</string>
+    <string name="error_enter_street">Enter street name</string>
+    <string name="error_enter_suburb">Enter surburb</string>
+    <string name="error_enter_postcode">Please enter post code</string>
 
 </resources>
