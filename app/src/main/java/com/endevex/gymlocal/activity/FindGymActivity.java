@@ -45,8 +45,8 @@ public class FindGymActivity extends FragmentActivity implements OnMapReadyCallb
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         // Set a preference for minimum and maximum zoom.
-        mMap.setMinZoomPreference(6.0f);
-        mMap.setMaxZoomPreference(14.0f);
+        mMap.setMinZoomPreference(11.0f);
+        mMap.setMaxZoomPreference(17.0f);
     }
 
 }
