@@ -16,6 +16,11 @@ import com.endevex.gymlocal.presenter.MainActivityPresenter;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.MainView;
 
+/**
+ * Main component of the app.
+ * It checks if a user is logged in and allows them to view it, otherwise send them to login.
+ * It displays certain layouts depending on the user type logged in.
+ */
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private MainActivityPresenter mPresenter;
@@ -34,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         checkLoggedIn();
     }
 
+    /**
+     * Check if user is logged in.
+     */
     private void checkLoggedIn() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         // Grab email of logged in user and check if logged in by passing to Presenter method.
@@ -76,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mWelcomeTv.setText(getString(R.string.welcome_user, name));
     }
 
-
+    /**
+     * Logs the user out
+     */
     public void logout() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -85,19 +95,34 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mPresenter.checkLoggedIn(sharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, null));
     }
 
-
+    /**
+     * On click method. Sends user to account details.
+     */
     public void goToAccount() {
         startActivity(new Intent(this, AccountActivity.class));
     }
 
+    /**
+     * On click method. Send user to Map view to find gym.
+     * @param view
+     */
     public void startMapActivity(View view) {
         startActivity(new Intent(this, FindGymActivity.class));
     }
 
+    /**
+     * On click method. Send user to add gym activity.
+     * @param view
+     */
     public void goToAddGym(View view) {
         startActivity(new Intent(this, RegisterGymActivity.class));
     }
 
+    /**
+     *  On click method. Send user to edit gym activity.
+     *
+     * @param view
+     */
     public void goToEditGym(View view) {
         startActivity(new Intent(this, EditGymActivity.class));
     }

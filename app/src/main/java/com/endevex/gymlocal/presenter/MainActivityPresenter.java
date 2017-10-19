@@ -17,12 +17,22 @@ import java.util.List;
  * Created by Sal on 6/10/17.
  */
 public class MainActivityPresenter {
+
     private MainView mMainView;
 
+    /**
+     * Construct to link presenter and view.
+     * Allow the presenter to pass data from model to view.
+     * @param view
+     */
     public MainActivityPresenter(MainView view) {
         mMainView = view;
     }
 
+    /**
+     * Confirm if there is a user logged in and calls the appropriate view method.
+     * @param email
+     */
     public void checkLoggedIn(String email) {
         if (email==null||email.equals("")) {
             mMainView.navigateToLogin();

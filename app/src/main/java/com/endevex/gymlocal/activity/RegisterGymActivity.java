@@ -22,6 +22,11 @@ import com.endevex.gymlocal.services.BackgroundServiceGeocode;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.RegisterGymView;
 
+/**
+ * Gym owners need to register their gyms and this class will check their gym location is a valid
+ * address and return the geo locations so we can store them and pin the markers on the Google API
+ * play service map.
+ */
 public class RegisterGymActivity extends AppCompatActivity implements RegisterGymView {
 
     private RegisterGymActivityPresenter mPresenter;
@@ -34,6 +39,10 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
     private EditText mSuburb;
     private EditText mPostCode;
 
+    /**
+     * Created a receiver to listen for a specific message from the background service.
+     * So it knows when it has finished obtaining the geo location.
+     */
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -100,10 +109,7 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Initial save method that kicks off the save process, it calls the presenter to
-     * validate the data and kick off background services if valid.
-     */
+
     @Override
     public void saveGym() {
         mPresenter.saveGym(mGymName.getText().toString(), mGymType.getText().toString(),
@@ -113,13 +119,7 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
                 mGymPhone.getText().toString());
     }
 
-    /**
-     * Once the background service has returned it call this method which then calls the
-     * presenter to actually save the data with a longitude and latitude of the gym address
-     * provided.
-     * @param latitude
-     * @param longitude
-     */
+
     @Override
     public void saveGym(double latitude, double longitude) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -184,6 +184,7 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
         Toast.makeText(RegisterGymActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
     public void startBackgroundService(String address) {
         Intent backgroundIntent = new Intent(RegisterGymActivity.this, BackgroundServiceGeocode.class);
         backgroundIntent.putExtra(Constants.ADDRESS, address);
