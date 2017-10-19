@@ -18,10 +18,9 @@ import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.LoginView;
 
 /**
- * Activity where users can login.
+ * Activity where users can login with email and password.
  * Created by Sal on 13/10/2017.
  */
-
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private LoginActivityPresenter mPresenter;
@@ -39,6 +38,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mPasswordEt = (EditText) findViewById(R.id.password_et);
     }
 
+    /**
+     * On click method to start Register Activity
+     * @param view
+     */
     public void showRegisterActivity(View view) {
         startActivityForResult(new Intent(this, SignUpActivity.class), Constants.REQUEST_CODE);
     }
@@ -57,6 +60,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         }
     }
 
+    /**
+     * Attempts login by passing email, password to presenter.
+     * @param view
+     */
     public void attemptLogin(View view) {
         mPresenter.login(mEmailEt.getText().toString(), mPasswordEt.getText().toString());
     }
