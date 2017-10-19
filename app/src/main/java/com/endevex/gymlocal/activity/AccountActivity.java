@@ -18,6 +18,10 @@ import com.endevex.gymlocal.presenter.AccountActivityPresenter;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.AccountView;
 
+/**
+ *  This is the activity of the users account (essentially a profile manager)
+ *  User can come in edit their details.
+ */
 public class AccountActivity extends AppCompatActivity implements AccountView {
 
     private SharedPreferences mSharedPref;
@@ -60,6 +64,7 @@ public class AccountActivity extends AppCompatActivity implements AccountView {
         mCurrentEmail = email;
     }
 
+    @Override
     public void saveChanges() {
         mPresenter.saveUserDetails(mFirstName.getText().toString(), mLastName.getText().toString(), mCurrentEmail, mEmail.getText().toString());
         SharedPreferences.Editor editor = mSharedPref.edit();
@@ -68,6 +73,10 @@ public class AccountActivity extends AppCompatActivity implements AccountView {
         finish();
     }
 
+    /**
+     * Onclick command to startActivity for change password
+     * @param view
+     */
     public void changePassword(View view) {
 
     }

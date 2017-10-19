@@ -28,7 +28,7 @@ public class SignUpActivityPresenter {
     public void registerUser(String firstName, String lastName, String email, String password,
                              String passwordRetyped, boolean gymOwner) {
         if (validate(firstName, lastName, email, password, passwordRetyped)) {
-            boolean userType = gymOwner ? true : false;
+            boolean userType = gymOwner;
             User user = new User(firstName, lastName, email, password, userType);
             user.save();
             mSignUpView.returnLoginUser(email, password);

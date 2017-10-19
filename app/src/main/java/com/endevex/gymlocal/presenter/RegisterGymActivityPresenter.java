@@ -28,8 +28,8 @@ public class RegisterGymActivityPresenter {
     }
 
     /**
-     * Saves the gym and information passed through.
-     * Calls methods to confirm data is valid.
+     * Kicks off the save gym process by checking data is valid and then starting the
+     * background service to get the geo co-ordinates of the address provided.
      *
      * @param gymName
      * @param gymType
@@ -124,6 +124,23 @@ public class RegisterGymActivityPresenter {
                 + country + ",+" + postcode;
     }
 
+    /**
+     * Saves gym to local database using Sugar ORM
+     *
+     * @param gymName
+     * @param gymType
+     * @param subpremise
+     * @param streetNumber
+     * @param street
+     * @param suburb
+     * @param state
+     * @param country
+     * @param postcode
+     * @param phone
+     * @param latitude
+     * @param longitude
+     * @param emailLoggedInUser
+     */
     public void saveGym(String gymName, String gymType, String subpremise, String streetNumber,
                         String street, String suburb, String state, String country,
                         String postcode, String phone, double latitude, double longitude,
@@ -140,60 +157,4 @@ public class RegisterGymActivityPresenter {
             Log.d(TAG, g.toString());
         }
     }
-
-
-    /**
-     * Using the Retrofit API and Googles Geocode Webservice API this returns the longitude
-     * and latitude of the address provided to check location can be found.
-     *
-     * @param address
-     * @param apiKey
-     * @return longitude and latitude in doubles.
-
-    private void checkValidAddress(final String address, final String apiKey) {
-    Retrofit retrofit = new Retrofit.Builder()
-    .baseUrl(Constants.GEOCODE_WEBSERVICE_BASE_URL)
-    .addConverterFactory(GsonConverterFactory.create())
-    .build();
-
-    GeocodeService geoService = retrofit.create(GeocodeService.class);
-    Call<GeocodeResult> call = geoService.getLocation(address, apiKey);
-
-    call.enqueue(new Callback<GeocodeResult>() {
-    @Override public void onResponse(Call<GeocodeResult> call, Response<GeocodeResult> response) {
-    Log.d(TAG, "Response: " + response.toString());
-    Log.d(TAG, "Received: " + response.body().toString());
-    if (response.body().getStatus().equalsIgnoreCase(Constants.GEOCODE_QUERY_LIMIT)) {
-    Log.d(TAG, "STUPID GOOGLE QUERY LIMIT!!!!!!");
-    try {
-    Thread.sleep(10000);
-    mQueryLimitCounter++;
-    if (mQueryLimitCounter < 5) {
-    checkValidAddress(address, apiKey);
-    } else {
-    return;
-    }
-    } catch (InterruptedException e) {
-    e.printStackTrace();
-    }
-    } else {
-    Location locas  = response.body().getResults().get(0).getGeometry().getLocation();
-    Log.d(TAG, "Lat: " + locas.getLat());
-    Log.d(TAG, "Lng: " + locas.getLng());
-    Viewport viepw = response.body().getResults().get(0).getGeometry().getViewport();
-    Log.d(TAG, "13 Lat: " + viepw.getNortheast().getLng());
-    Log.d(TAG, "13 Lng: " + viepw.getNortheast().getLat());
-    Log.d(TAG, "13 Lat SW: " + viepw.getSouthwest().getLng());
-    Log.d(TAG, "13 Lng SW: " + viepw.getSouthwest().getLat());
-    }
-    }
-
-    @Override public void onFailure(Call<GeocodeResult> call, Throwable t) {
-    mRegisterGymView.errorGymLocation();
-    Log.e(TAG, "BAD: " + t.getMessage());
-    Log.e(TAG, "BAD: " + t.getMessage());
-    Log.e(TAG, "BAD: " + t.getMessage());
-    }
-    });
-    }*/
 }

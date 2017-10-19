@@ -100,6 +100,10 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Initial save method that kicks off the save process, it calls the presenter to
+     * validate the data and kick off background services if valid.
+     */
     @Override
     public void saveGym() {
         mPresenter.saveGym(mGymName.getText().toString(), mGymType.getText().toString(),
@@ -109,6 +113,13 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
                 mGymPhone.getText().toString());
     }
 
+    /**
+     * Once the background service has returned it call this method which then calls the
+     * presenter to actually save the data with a longitude and latitude of the gym address
+     * provided.
+     * @param latitude
+     * @param longitude
+     */
     @Override
     public void saveGym(double latitude, double longitude) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -118,6 +129,7 @@ public class RegisterGymActivity extends AppCompatActivity implements RegisterGy
                 Constants.STATE, Constants.COUNTRY, mPostCode.getText().toString(),
                 mGymPhone.getText().toString(), latitude, longitude,
                 sharedPref.getString(Constants.LOGGED_IN_USER_EMAIL, null));
+        finish();
     }
 
     @Override

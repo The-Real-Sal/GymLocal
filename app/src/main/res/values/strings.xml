@@ -80,5 +80,6 @@
     <string name="error_enter_postcode">Please enter post code</string>
     <string name="text_edit_gym_btn">Edit Gym</string>
     <string name="title_activity_edit_gym">EditGymActivity</string>
+    <string name="colon_space_space">:</string>
 
 </resources>

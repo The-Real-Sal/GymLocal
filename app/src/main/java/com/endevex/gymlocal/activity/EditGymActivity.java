@@ -15,6 +15,10 @@ import com.endevex.gymlocal.presenter.EditGymActivityPresenter;
 import com.endevex.gymlocal.utils.Constants;
 import com.endevex.gymlocal.view.EditGymView;
 
+/**
+ * This is the activity for the edit gym class.
+ * Here is where a gym owner will come to edit information about their gym.
+ */
 public class EditGymActivity extends AppCompatActivity implements EditGymView {
 
     private EditGymActivityPresenter mPresenter;
