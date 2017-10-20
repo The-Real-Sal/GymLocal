@@ -3,6 +3,7 @@ package com.endevex.gymlocal.model;
 import com.orm.SugarRecord;
 
 /**
+ * Gym Model for the application and uses Sugar ORM to create the entity and save to local db.
  * Created by Leivant on 6/10/2017.
  */
 public class Gym extends SugarRecord<Gym> {
@@ -15,9 +16,22 @@ public class Gym extends SugarRecord<Gym> {
 
     private User mOwner;
 
+    /**
+     * Default constructor required for Sugar ORM to create entity.
+     */
     public Gym() {
     }
 
+    /**
+     * Constructor to initialise all fields.
+     * @param name
+     * @param type
+     * @param address
+     * @param phone
+     * @param longitude
+     * @param latitude
+     * @param owner
+     */
     public Gym(String name, String type, String address, String phone, Double longitude, Double latitude, User owner) {
         this.mName = name;
         this.mType = type;

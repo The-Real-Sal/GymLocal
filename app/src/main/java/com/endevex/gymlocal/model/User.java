@@ -6,9 +6,9 @@ import android.preference.PreferenceManager;
 import com.orm.SugarRecord;
 
 /**
+ * User Model for the application and uses Sugar ORM to create the entity and save to local db.
  * Created by Leivant on 6/10/2017.
  */
-
 public class User extends SugarRecord<User> {
     private String mFirstName;
     private String mLastName;
@@ -16,9 +16,21 @@ public class User extends SugarRecord<User> {
     private String mPassword;
     private boolean mGymOwner;
 
+
+    /**
+     * Default constructor required for Sugar ORM to create entity.
+     */
     public User() {
     }
 
+    /**
+     * Constructor to initialise all fields.
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param gymOwner
+     */
     public User(String firstName, String lastName, String email, String password, boolean gymOwner) {
         this.mFirstName = firstName;
         this.mLastName = lastName;
